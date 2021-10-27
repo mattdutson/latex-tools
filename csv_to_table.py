@@ -7,7 +7,7 @@ from argparse import ArgumentParser, FileType
 
 def main(args):
     # Read the rows of the CSV file into a list.
-    lines = args.csv_file.readlines()
+    lines = args.csv_data.readlines()
     rows = list(csv.reader(lines, delimiter=args.csv_delimiter))
 
     # If there are no rows, then there's nothing we need to do.
@@ -36,11 +36,11 @@ def parse_args():
 
     # Required arguments
     parser.add_argument(
-        "csv_file",
+        "csv_data",
         nargs="?",
         default=sys.stdin,
         type=FileType("r"),
-        help="the CSV file whose contents should be converted to a LaTeX table",
+        help="the CSV data whose contents should be converted to a LaTeX table",
     )
 
     # Optional arguments
