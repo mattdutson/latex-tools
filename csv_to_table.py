@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys
 import csv
+import sys
 from argparse import ArgumentParser, FileType
 
 
@@ -40,7 +40,7 @@ def parse_args():
         nargs="?",
         default=sys.stdin,
         type=FileType("r"),
-        help="the CSV data whose contents should be converted to a LaTeX table",
+        help="the CSV data to be converted to a LaTeX table",
     )
 
     # Optional arguments
