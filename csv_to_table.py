@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 def main(args):
     # Read the rows of the CSV file into a list.
     with open(args.csv_file, "r") as f:
-        reader = csv.reader(f, delimiter=args.delimiter)
+        reader = csv.reader(f, delimiter=args.csv_delimiter)
         rows = list(reader)
 
     # If there are no rows, then there's nothing we need to do.
@@ -28,7 +28,7 @@ def main(args):
         padded = [s.ljust(width) for s, width in zip(row, widths)]
         print(" & ".join(padded) + r" \\", end="")
         border = args.first_border if not i else args.other_border
-        print(f" {border}" if (border and i < len(rows) - 1) else "")
+        print(" " + border if (border and i < len(rows) - 1) else "")
 
 
 def parse_args():
